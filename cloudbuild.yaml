@@ -3,11 +3,11 @@ serviceAccount: 'projects/$PROJECT_ID/serviceAccounts/cicd-test1-492416-gcb@cicd
 steps:
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', '$_REGION-docker.pkg.dev/$PROJECT_ID/cicd-demo/spring-petclinic:$_COMMIT_SHA', '.']
+    args: ['build', '-t', '$LOCATION-docker.pkg.dev/$PROJECT_ID/cicd-demo/spring-petclinic:$COMMIT_SHA', '.']
 
   # Push the container image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', '$_REGION-docker.pkg.dev/$PROJECT_ID/cicd-demo/spring-petclinic:$_COMMIT_SHA']
+    args: ['push', '$_REGION-docker.pkg.dev/$PROJECT_ID/cicd-demo/spring-petclinic:$COMMIT_SHA']
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -17,13 +17,13 @@ steps:
       - 'deploy'
       - 'spring-petclinic'
       - '--image'
-      - '$_REGION-docker.pkg.dev/$PROJECT_ID/cicd-demo/spring-petclinic:$_COMMIT_SHA'
+      - '$LOCATION-docker.pkg.dev/$PROJECT_ID/cicd-demo/spring-petclinic:$COMMIT_SHA'
       - '--region'
       - '$_REGION'
       - '--allow-unauthenticated'
 
 images:
-  - '$_REGION-docker.pkg.dev/$PROJECT_ID/cicd-demo/spring-petclinic:$_COMMIT_SHA'
+  - '$LOCATION-docker.pkg.dev/$PROJECT_ID/cicd-demo/spring-petclinic:$COMMIT_SHA'
 
 options:
   requestedVerifyOption: VERIFIED
