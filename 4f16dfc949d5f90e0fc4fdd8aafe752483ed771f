@@ -1,0 +1,25 @@
+Dockerfile
+  ecdd2cf441b6d5ff 1-13
+cloudbuild.yaml
+  ecdd2cf441b6d5ff 3-5,7-9,11-19,21-25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.6",
+  "base_commit_sha": "4f16dfc949d5f90e0fc4fdd8aafe752483ed771f",
+  "prompts": {
+    "ecdd2cf441b6d5ff": {
+      "agent_id": {
+        "tool": "gemini",
+        "id": "2a7d0dbe-aea7-4a82-8db9-68d93a9f5a3e",
+        "model": "gemini-3.1-pro-preview"
+      },
+      "human_author": "Haroon Chaudhry",
+      "messages": [],
+      "total_additions": 40,
+      "total_deletions": 0,
+      "accepted_lines": 33,
+      "overriden_lines": 4
+    }
+  }
+}
